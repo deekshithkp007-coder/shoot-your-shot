@@ -294,13 +294,9 @@ def draw_level_selector(mouse_pos,hover_state):
     padding = 40
     back_btn_size = (160,50)
     load_custom_btn_size = (160,50)
-    pygame.draw.line(SCREEN,BLACK,(SCREEN_W//2,0),(SCREEN_W//2,SCREEN_H),3)
-
     back_rect = pygame.Rect(SCREEN_W//2-padding-back_btn_size[0],SCREEN_H-100,back_btn_size[0],back_btn_size[1])
 
     load_custom_rect = pygame.Rect(SCREEN_W//2-padding+load_custom_btn_size[0]/2,SCREEN_H-100,load_custom_btn_size[0],load_custom_btn_size[1])
-    #back_rect = pygame.Rect(SCREEN_W//2 - back_btn_size[0]/2-load_custom_btn_size[0], SCREEN_H - 100, back_btn_size[0],back_btn_size[1])
-    #load_custom_rect = pygame.Rect(SCREEN_W//2 - load_custom_btn_size[0]/2 + padding, SCREEN_H - 100, load_custom_btn_size[0],load_custom_btn_size[1])
     draw_button_scaled(SCREEN, back_rect, "BACK", 0.0)
     draw_button_scaled(SCREEN,load_custom_rect , "CUSTOM", 0.0)
     return {"levels": level_rects, "back": back_rect,"custom":load_custom_rect}

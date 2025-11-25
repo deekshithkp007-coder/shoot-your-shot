@@ -248,7 +248,6 @@ class Editor:
                 valid_start = True
         return valid_start and valid_end
 
-
 def main():
     screen = pygame.display.set_mode((SCREEN_W,SCREEN_H))
     clock = pygame.time.Clock()
@@ -260,11 +259,6 @@ def main():
             if editor.process_event(event): break
             match event.type:
                 case pygame.QUIT:
-                    level = editor.into_level()
-                    if level:
-                        print(level.to_dict()) 
-                    else: 
-                        print("Invalid level")
                     running = False
 
         editor.update()
