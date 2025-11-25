@@ -11,6 +11,9 @@ class LevelState(Enum):
     PLAYING = 1
     WON = 2
 
+"""
+    Manages everything realted to a specific level (like collisions, drawing, drawing menus etc)
+"""
 class Level:
     def __init__(self,screen,start,end,objs):
         self.screen = screen
@@ -42,8 +45,6 @@ class Level:
         self.onlevelend = onlevelend
 
     def draw(self):
-
-
         mouse_pos_initial_v = pygame.math.Vector2(self.mouse_initial_pos or (self.ball.rect.x,self.ball.rect.y))
         mouse_pos_final_v = pygame.math.Vector2(self.mouse_final_pos or (self.ball.rect.x,self.ball.rect.y))
         dir_v =  mouse_pos_initial_v - mouse_pos_final_v

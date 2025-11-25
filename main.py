@@ -37,7 +37,7 @@ LEVEL_1.from_dict(
 {'ball_start': (660, 240), 'ball_end': (150, 270), 'ball': {'rect': {'x': 660, 'y': 240, 'w': 15, 'h': 15}, 'velocity': 0.0, 'dir': {'x': 0.0, 'y': 0.0}}, 'objects': [{'inner': {'rect': {'x': 0, 'y': 0, 'w': 1280, 'h': 30}}}, {'inner': {'rect': {'x': 0, 'y': 690, 'w': 1280, 'h': 30}}}, {'inner': {'rect': {'x': 0, 'y': 30, 'w': 30, 'h': 690}}}, {'inner': {'rect': {'x': 1250, 'y': 30, 'w': 30, 'h': 720}}}, {'inner': {'rect': {'x': 300, 'y': 210, 'w': 30, 'h': 30}}}, {'inner': {'rect': {'x': 360, 'y': 240, 'w': 30, 'h': 30}}}, {'inner': {'rect': {'x': 390, 'y': 240, 'w': 30, 'h': 30}}}, {'inner': {'rect': {'x': 360, 'y': 300, 'w': 30, 'h': 30}}}, {'inner': {'rect': {'x': 480, 'y': 240, 'w': 30, 'h': 30}}}, {'inner': {'rect': {'x': 420, 'y': 300, 'w': 30, 'h': 30}}}]}
 )
 
-LEVELS = [LEVEL_0,LEVEL_1]
+#LEVELS = [LEVEL_0,LEVEL_1]
 
 class AppState(Enum):
     Menu = 1,
@@ -47,7 +47,10 @@ class App:
     def __init__(self):
         self.state = AppState.Menu
         def play():
-            level = LEVELS[self.inner.selected_level]
+            #level = LEVELS[self.inner.selected_level]
+            level_dict = LEVELS_DICTS[self.inner.selected_level-1] or LEVEL_0
+            level = LEVEL_0
+            level.from_dict(level_dict)
             #level = LEVEL_0
             self.inner = level
             self.state = AppState.Playing

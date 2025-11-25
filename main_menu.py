@@ -254,6 +254,7 @@ def draw_settings_menu(mouse_pos,settings_anim,settings):
     rects["back"] = back_rect
     return {"toggles": rects, "back": back_rect}
 
+
 # Level selector (1..10)
 def draw_level_selector(mouse_pos,hover_state):
     blit_bg_with_zoom(SCREEN, BG_IMG, 1.06)
@@ -268,7 +269,9 @@ def draw_level_selector(mouse_pos,hover_state):
     start_x = (SCREEN_W - (cols*card_w + (cols-1)*spacing_x)) // 2
     start_y = 160
 
-    for i in range(10):
+    num_levels = len(load_levels_dict())
+
+    for i in range(min(10,num_levels)):
         col, row = i % cols, i // cols
         x = start_x + col * (card_w + spacing_x)
         y = start_y + row * (card_h + spacing_y)
@@ -308,5 +311,3 @@ def update_hover_states(mouse_pos, dt,hover_state,settings,settings_anim):
         target = 1.0 if (hovered or settings.get(key, False)) else 0.0
         cur = settings_anim[key]
         settings_anim[key] = cur + (target - cur) * min(1.0, ANIM_SPEED * dt)
-
-

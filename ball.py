@@ -42,6 +42,9 @@ class Ball:
 
             obj_rect = obj.rect()
 
+            # NOTES FOR DEEK:
+            # add playing sounds INSIDE the if statement if its true
+
             # check for x-axis collision:
             if rect_x.colliderect(obj_rect):
                 print("X COLLISION")
