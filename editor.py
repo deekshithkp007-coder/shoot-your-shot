@@ -117,7 +117,7 @@ class Tool():
                             nrect.h = BORDER_SIZE
                             pygame.draw.rect(screen,BLACK,nrect,7)
                         case ObjType.Hole:
-                            pygame.draw.circle(screen,BLACK,(rect.x+HOLE_RADIUS,rect.y+HOLE_RADIUS),HOLE_RADIUS,5)
+                            pygame.draw.circle(screen,BLACK,(rect.x,rect.y),HOLE_RADIUS,5)
                             
                         case ObjType.BallStart:
                             pygame.draw.circle(screen,BLACK,(rect.x+BALL_RADIUS,rect.y+BALL_RADIUS),BALL_RADIUS,5)
@@ -233,10 +233,10 @@ class Editor:
         ball_end = ()
         for obj in self.objects:
             if obj.type == ObjType.Hole:
-                ball_end = obj.rect.x,obj.rect.y
+                ball_end = obj.rect.x+HOLE_RADIUS,obj.rect.y+HOLE_RADIUS
                 continue
             if obj.type == ObjType.BallStart:
-                ball_start = obj.rect.x,obj.rect.y
+                ball_start = obj.rect.x+BALL_RADIUS,obj.rect.y+BALL_RADIUS
                 continue
             if obj.type == ObjType.StaticBlock:
                 rect = obj.rect
