@@ -16,15 +16,16 @@ py -m pip install -r requirements.txt
 ## Editor Controls
 ### Tools
 Press the keys to equip the tools in the editor:
-1 => Static Block
-2 => Moving Block (WIP)
-3 => Ball Starting Position
-4 => Hole
-5 => Eraser
+- 1 => Static Block
+- 2 => Moving Block (WIP)
+- 3 => Ball Starting Position
+- 4 => Hole
+- 5 => Eraser
 
 ### Tool Size Changing
 - w to increase width
 - h to increase height
+
 Press LEFT SHIFT to decrease when pressing the respective key.
 
 
