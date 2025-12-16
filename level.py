@@ -48,6 +48,8 @@ class Level:
 
     def draw(self):
 
+
+
         if self.mouse_initial_pos is not None and self.mouse_final_pos is not None :
             mouse_pos_initial_v = pygame.math.Vector2(self.mouse_initial_pos or (self.ball.rect.x,self.ball.rect.y))
             mouse_pos_final_v = pygame.math.Vector2(self.mouse_final_pos or (self.ball.rect.x,self.ball.rect.y))
