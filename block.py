@@ -20,7 +20,7 @@ class StaticBlock:
         return {'rect':rect_to_dict(self.rect)}
 
 class MovingBlock:
-    def __init__(self,x,y,w,h,speed:float,checkpoints:[pygame.Vector2]):
+    def __init__(self,x,y,w,h,speed:float,checkpoints):
         if len(checkpoints) == 0:
             checkpoints = [pygame.Vector2(x,y)]
         self.rect = pygame.Rect(x,y,w,h)
@@ -74,7 +74,7 @@ class Block:
         inner = dict_.get('inner')
         if inner.get('checkpoints') or inner.get('current_checkpoint') or inner.get('speed'):
             self.inner = MovingBlock(0,0,0,0,0,[])
-            self.inner.from_dict(inner['rect'])
+            self.inner.from_dict(inner)
         else:
             self.inner = StaticBlock(0,0,0,0)
             self.inner.from_dict(inner)
